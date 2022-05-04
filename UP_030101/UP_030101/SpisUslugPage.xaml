@@ -1,0 +1,57 @@
+﻿<Page x:Class="UP_030101.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP_030101"
+      xmlns:core="clr-namespace:UP_030101.Modal"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SpisUslugPage" Loaded="Page_Loaded">
+    <Page.Resources>
+        <core:ListTitle x:Key="ListTitle"/>
+    </Page.Resources>
+    <DockPanel>
+        <Label Content="Каталог: " DockPanel.Dock="Top"/>
+        <ListBox 
+            ItemsSource="{Binding Service}" 
+            HorizontalContentAlignment="Stretch" 
+            Name="ListBoxEmployee">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="120" />
+                        </Grid.RowDefinitions>
+                        <Image  Source="{Binding MainImagePath}" />
+                        <DockPanel Grid.Column="1">
+                            <TextBlock FontSize="16" DockPanel.Dock="Top">
+                                    <Run Text="{Binding Title}" FontWeight="DemiBold" />
+                            </TextBlock>
+                            <TextBlock FontSize="14" DockPanel.Dock="Top">
+                                    <Run Text="Длительность: " />
+                                    <Run Text="{Binding DurationInSeconds}"/>
+                            </TextBlock>
+                            <TextBlock FontSize="14" DockPanel.Dock="Top">
+                                    <Run Text="Цена: " />
+                                    <Run Text="{Binding Cost, StringFormat={}{0:F0}{0: Руб}}"/>
+                            </TextBlock>
+                            <TextBlock FontSize="14" DockPanel.Dock="Top">
+                                    <Run Text="Скидка: " />
+                                    <Run Text="{Binding Discount, StringFormat={}{0:P0}}"/>
+                            </TextBlock>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <Button Content="Редактировать" Height="25" Width="120" Margin="5" Click="EditSpisClick"/>
+                                <Button Content="Удалить" Height="25" Width="70" Margin="5" Click="DeleteSpisClick"/>
+                            </StackPanel>
+                        </DockPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Page>

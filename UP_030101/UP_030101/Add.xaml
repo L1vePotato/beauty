@@ -1,0 +1,60 @@
+﻿<Window x:Class="UP_030101.Add"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UP_030101"
+        mc:Ignorable="d"
+        Title="Добавление" Height="450" Width="800" Icon="Icon/beauty_logo.ico">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Background" Value="#FFFF4A6C" />
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="FontFamily" Value="Tahoma" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="Margin" Value="5" />
+            </Style.Setters>
+        </Style>
+        <Style TargetType="Label">
+            <Style.Setters>
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="FontFamily" Value="Tahoma" />
+            </Style.Setters>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Button Content="Назад" Grid.Column="1" Grid.Row="1" Click="Button_Click" />
+        <Label Content="Записи" FontSize="30" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center"/>
+        <Button Content="Добавить" FontSize="20" Foreground="Black" Click="Button_Click_1" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2"/>
+        <Label Content="Номер клиента" FontSize="20" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding ClientID}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3"/>
+        <Label Content="Номер услуги" FontSize="20" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding ServiceID}" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3"/>
+        <Label Content="Время записи" FontSize="20" Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
+        <TextBox Text="{Binding StartTime}" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="3"/>
+
+    </Grid>
+</Window>
